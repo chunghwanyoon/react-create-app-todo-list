@@ -6,6 +6,11 @@ import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 class TodoItem extends Component {
+    // TodoItem은 토글되었을때만 업데이트
+    shouldComponentUpdate(nextProps, nextState) {
+        return this.props.done !== nextProps.done;
+    }
+
     render() {
         const {done, children, onToggle, onRemove} = this.props;
         /*

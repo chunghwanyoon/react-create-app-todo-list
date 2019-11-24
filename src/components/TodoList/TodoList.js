@@ -3,6 +3,11 @@ import TodoItem from '../TodoItem';
 
 
 class TodoList extends Component {
+    // TodoList 컴포넌트 최적화
+    shouldComponentUpdate(nextProps, nextState) {
+        return this.props.todos !== nextProps.todos;
+    }
+
     render() {
         const { todos, onToggle, onRemove } = this.props;
         const todoList = todos.map(
